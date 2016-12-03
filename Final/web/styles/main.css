@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 1, 2016, 5:04:58 PM
+    Author     : wrosmon
+*/
+
+h1 {
+    font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+    font-size: 140%;
+    background-color: #7FFFD4;
+    color: #FF8C00;
+}
+
+#title {
+    font-weight: bold;
+    text-align: center;
+}
+
+body {
+    background-color: #7FFFD4;
+    color: black;
+}
+
+#login {
+    float: right;
+}
+
+#disclaimer {
+    font-size: 10;
+    color: black;
+    text-align: center;
+}
