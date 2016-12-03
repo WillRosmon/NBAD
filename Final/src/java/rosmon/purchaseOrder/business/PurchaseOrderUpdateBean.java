@@ -1,41 +1,44 @@
+package rosmon.purchaseOrder.business;
+
+import rosmon.utilities.Validator;
 
 public class PurchaseOrderUpdateBean {
-	
-	String userId, vendorId;
-	
-	public String getUserId() {
-		return userId;
-	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+    String userId, vendorId;
 
-	public String getVendorId() {
-		return vendorId;
-	}
+    public String getUserId() {
+        return userId;
+    }
 
-	public void setVendorId(String vendorId) {
-		this.vendorId = vendorId;
-	}
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-	public PurchaseOrder merge(PurchaseOrder po1, PurchaseOrder po2, boolean keepOriginal) {
-		return processMerge(po1, po2, keepOriginal);
-	}
-	
-	private PurchaseOrder processMerge(PurchaseOrder po1, PurchaseOrder po2, boolean keepOriginal) {
-		
-		if(keepOriginal) {
-			Validator validator = new Validator();
-			
-		}
-		
-		return null;
-	}
-	
-	private PurchaseOrder generateNewPurchaseOrder() {
-		PurchaseOrder purchaseOrder = new PurchaseOrder();
-		
-		return purchaseOrder;
-	}
+    public String getVendorId() {
+        return vendorId;
+    }
+
+    public void setVendorId(String vendorId) {
+        this.vendorId = vendorId;
+    }
+
+    public PurchaseOrder merge(PurchaseOrder po1, PurchaseOrder po2, boolean keepOriginal) {
+        return processMerge(po1, po2, keepOriginal);
+    }
+
+    private PurchaseOrder processMerge(PurchaseOrder po1, PurchaseOrder po2, boolean keepOriginal) {
+
+        if (keepOriginal) {
+            Validator validator = new Validator();
+
+        }
+
+        return null;
+    }
+
+    private PurchaseOrder generateNewPurchaseOrder() {
+        PurchaseOrder purchaseOrder = new PurchaseOrder();
+
+        return purchaseOrder;
+    }
 }

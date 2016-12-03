@@ -1,55 +1,56 @@
+package rosmon.utilities;
 
 import java.util.Date;
 
 public class Transaction {
 
-	private String userId, companyId, vendorId;
-	double amount;
-	Date date;
-	
-	public Transaction() {
-		userId = companyId = vendorId = null;
-		amount = 0;
-	}
+    private String userId, companyId, vendorId;
+    double amount;
+    Date date;
 
-	public String getUserId() {
-		return userId;
-	}
+    public Transaction() {
+        userId = companyId = vendorId = null;
+        amount = 0;
+    }
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+    public String getUserId() {
+        return userId;
+    }
 
-	public String getCompanyId() {
-		return companyId;
-	}
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-	public void setCompanyId(String companyId) {
-		this.companyId = companyId;
-	}
+    public String getCompanyId() {
+        return companyId;
+    }
 
-	public String getVendorId() {
-		return vendorId;
-	}
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
+    }
 
-	public void setVendorId(String vendorId) {
-		this.vendorId = vendorId;
-	}
+    public String getVendorId() {
+        return vendorId;
+    }
 
-	public double getAmount() {
-		return amount;
-	}
+    public void setVendorId(String vendorId) {
+        this.vendorId = vendorId;
+    }
 
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
+    public double getAmount() {
+        return amount;
+    }
 
-	public Date getDate() {
-		return date;
-	}
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
-	
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
 }

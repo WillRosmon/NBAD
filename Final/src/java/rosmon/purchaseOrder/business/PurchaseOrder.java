@@ -1,18 +1,20 @@
+package rosmon.purchaseOrder.business;
+
+import rosmon.utilities.Transaction;
 
 public class PurchaseOrder extends Transaction {
 
+    double amountRemaining;
 
-	double amountRemaining;
-	
-	public PurchaseOrder() {
-		amountRemaining = 0;
-	}
+    public PurchaseOrder() {
+        amountRemaining = 0;
+    }
 
-	public double getAmountRemaining() {
-		return amountRemaining;
-	}
+    public double getAmountRemaining() {
+        return amountRemaining;
+    }
 
-	public void setAmountRemaining(double amountRemaining) {
-		this.amountRemaining = amountRemaining;
-	}
+    public void setAmountRemaining(double amountRemaining) {
+        this.amountRemaining = amountRemaining;
+    }
 }
