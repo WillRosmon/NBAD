@@ -49,9 +49,7 @@ public class POServlet extends HttpServlet {
         try {
             amount = Double.parseDouble(request.getParameter("amount"));
             String userId = (String) request.getSession().getAttribute(SessionConstants.USER_ID);
-            String companyId = (String) request.getSession().getAttribute(SessionConstants.COMPANY_ID);
             purchaseOrder.setUserId(userId);
-            purchaseOrder.setCompanyId(companyId);
             purchaseOrder.setAmount(amount);
             purchaseOrder.setAmountRemaining(amount);
             purchaseOrder.setVendorId(request.getParameter("vendor_id"));

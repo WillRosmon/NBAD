@@ -5,9 +5,10 @@ import rosmon.utilities.Transaction;
 
 public class Purchase extends Transaction {
 
-    PurchaseOrder po;
-    int receiptNumber;
-    int purchaseSeqNum;
+    private PurchaseOrder po;
+    private int purchaseSeqNum;
+    private String invoiceNum;
+    private String paymentNum;
 
     public PurchaseOrder getPo() {
         return po;
@@ -17,19 +18,27 @@ public class Purchase extends Transaction {
         this.po = po;
     }
 
-    public int getReceiptNumber() {
-        return receiptNumber;
-    }
-
-    public void setReceiptNumber(int receiptNumber) {
-        this.receiptNumber = receiptNumber;
-    }
-
     public int getPurchaseSeqNum() {
         return purchaseSeqNum;
     }
 
     public void setPurchaseSeqNum(int purchaseSeqNum) {
         this.purchaseSeqNum = purchaseSeqNum;
+    }
+    
+    public String getInvoiceNum() {
+        return this.invoiceNum;
+    }
+    
+    public void setInvoiceNum(String invoiceNum) {
+        this.invoiceNum = invoiceNum;
+    }
+    
+    public String getPaymentNum() {
+        return this.paymentNum;
+    }
+    
+    public void setPaymentNum(String paymentNum) {
+        this.paymentNum = paymentNum;
     }
 }

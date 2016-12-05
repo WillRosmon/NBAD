@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Transaction {
 
-    private String userId, companyId, vendorId;
+    private String userId, vendorId;
     double amount;
     Date date;
 
     public Transaction() {
-        userId = companyId = vendorId = null;
+        userId = vendorId = null;
         amount = 0;
     }
 
@@ -19,14 +19,6 @@ public class Transaction {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(String companyId) {
-        this.companyId = companyId;
     }
 
     public String getVendorId() {

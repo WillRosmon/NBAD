@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/Final"/>
+<Context path="/Final">
+    <Resource name="jdbc/purchaseDataSource" auth="Container"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/PurchaseManagement?autoReconnect=true"
+              username="root" password="sesame"
+              maxActive="100" maxIdle="30" maxWait="10000"
+              logAbandoned="true" removeAbandoned="true"
+              removeAbandonedTimeout="60" 
+              type="javax.sql.DataSource" />
+    
+<!--    <Realm className="org.apache.catalina.realm.JDBCRealm" debug="99"
+        dataSourceName="jdbc/purchaseDataSource"
+        localDataSource="true"
+        userTable="UserPass" userNameCol="username" userCredCol="pass"
+        userRoleTable="role" roleNameCol="roleName" />-->
+</Context>

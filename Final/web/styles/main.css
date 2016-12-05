@@ -11,8 +11,19 @@ and open the template in the editor.
 h1 {
     font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
     font-size: 140%;
-    background-color: #7FFFD4;
     color: #FF8C00;
+}
+
+h2 {
+    font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+    font-size: 125%;
+    color: #FF8C0F;
+}
+
+h3 {
+    font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+    font-size: 110%;
+    color: #FF8CFF;
 }
 
 #title {
@@ -21,7 +32,7 @@ h1 {
 }
 
 body {
-    background-color: #7FFFD4;
+    background-color: #7FFFA9;
     color: black;
 }
 
@@ -33,4 +44,9 @@ body {
     font-size: 10;
     color: black;
     text-align: center;
+}
+
+.navigation {
+    float: left;
+    padding-right: 100px;
 }
