@@ -14,14 +14,23 @@
         <%@include file="base/header.jsp" %>
     </head>
     <body>
-        <h1>Add a Vendor</h1>
+        <c:if test="${!empty Error}">
+            <div class="error">
+                Error Adding Vendor!
+            </div>
+        </c:if>
+        <h2>Add a Vendor</h2>
+        <div class="navigation">
+            <%@include file="base/navigation.jsp" %>
+        </div>
         <div>
             <form action="vendors" method="post">
                 Vendor Name:
                 <input type="text" id="vendorName" name="vendorName"/> <br />
                 <input type="submit" name="addVendor">
             </form>
-        </div>
+        </div> 
+        <br/><br/><br/>
     </body>
     <%@include file="base/footer.jsp" %>
 </html>

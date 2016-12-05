@@ -31,7 +31,7 @@ public class POServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String POID = request.getParameter("id");
-
+        
         //look up purchase order in database
         PurchaseOrder purchaseOrder = new PurchaseOrder();
         request.setAttribute("purchase_order", purchaseOrder);

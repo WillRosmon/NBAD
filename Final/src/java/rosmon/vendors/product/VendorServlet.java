@@ -62,7 +62,7 @@ public class VendorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String vendorId = request.getParameter("id").toString();
         VendorBean vendorBean = new VendorBean();
         String url = null;
@@ -102,20 +102,13 @@ public class VendorServlet extends HttpServlet {
         vendor.setVendorName(vendorName);
         String url = null;
         VendorBean vendorBean = new VendorBean();
-        vendor = vendorBean.addVendor(vendor);
-
-        if (vendor.getVendorId() != null) {
-            request.setAttribute("vendor", vendor);
-            url = "/vendorList.jsp";
+        if (vendorBean.addVendor(vendor)) {
+            url = "/vendors?id=all";
+            
         } else {
-            vendor = vendorBean.searchForVendorByName(vendorName);
-            if (vendor != null) {
-                request.setAttribute("vendor_result", vendor);
-                url = "/vendorSearch.jsp";
-            } else {
-                request.setAttribute("Error", "Error Adding Vendor");
-                url = "/addVendor.jsp";
-            }
+            request.setAttribute("Error", "Error Adding Vendor");
+            url = "/addVendor.jsp";
+            
         }
 
         getServletContext().getRequestDispatcher(url).forward(request, response);

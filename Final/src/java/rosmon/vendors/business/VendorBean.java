@@ -29,16 +29,11 @@ public class VendorBean {
         return vendor;
     }
     
-    public Vendor addVendor(Vendor vendor) {
+    public boolean addVendor(Vendor vendor) {
         if (vendor.getVendorId() != null) {
             vendor.setVendorId(null);
         }
-        this.vendor = VendorAccessor.addVendor(vendor);
-        if(this.vendor.getVendorId() != null) {
-            return this.vendor;
-        } else {
-            return vendor;
-        }
+        return VendorAccessor.addVendor(vendor) != 0;
     }
     
     public List<Vendor> selectAllVendors() {

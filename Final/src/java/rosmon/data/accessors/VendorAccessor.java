@@ -62,7 +62,7 @@ public class VendorAccessor {
         }
     }
     
-    public static Vendor addVendor(Vendor vendor) {
+    public static int addVendor(Vendor vendor) {
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
@@ -78,18 +78,13 @@ public class VendorAccessor {
                 .append(" ) VALUES ( ?, ? )");
         
         try {
-            ps = connection.prepareStatement(sb.toString(), PreparedStatement.RETURN_GENERATED_KEYS);
+            ps = connection.prepareStatement(sb.toString());
             ps.setString(1, vendor.getVendorName());
             ps.setString(2, vendor.getVendorStatus());
-            if(ps.executeUpdate() > 0) {
-                rs = ps.getGeneratedKeys();
-                vendor.setVendorId(Integer.toString(
-                        rs.getInt(DatabaseConstants.VENDOR_ID_COL)));
-            }
-            return vendor;
+            return ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(VendorAccessor.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+            return 0;
         } finally {
             if(ps != null){
                 DBUtil.closePreparedStatement(ps);

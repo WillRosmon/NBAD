@@ -13,8 +13,17 @@
         <servlet-name>vendorsServlet</servlet-name>
         <servlet-class>rosmon.vendors.product.VendorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>POServlet</servlet-name>
+        <servlet-class>rosmon.purchaseOrder.product.POServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VendorServlet</servlet-name>
         <url-pattern>/vendors</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>POServlet</servlet-name>
+        <url-pattern>/purchaseOrders</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
