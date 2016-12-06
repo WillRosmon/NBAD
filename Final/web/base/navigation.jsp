@@ -12,7 +12,8 @@
         <h3>Navigation</h3>
         <a href="<c:url value="/./vendors?id=all"/>">Vendors</a> <br/>
         <a href="<c:url value="/./addVendor.jsp"/>">Add a New Vendor</a> <br/>
-        <a href="<c:url value="/./purchaseOrders?id=all"/>">Purchase Orders</a> <br/>
+        <a href="<c:url value="/./purchaseOrders?action&getAll&id=all"/>">Purchase Orders</a> <br/>
+        <a href="<c:url value="/./addPurchaseOrder.jsp"/>">Add a Purchase Order</a> <br/>
         <a href="<c:url value="/./purchases?id=all" />">Purchases</a> <br/>
     </body>
 </html>

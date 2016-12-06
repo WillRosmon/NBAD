@@ -18,7 +18,20 @@
         <div class="navigation">
             <%@include file="/./base/navigation.jsp" %>
         </div>
-        <h1>Hello World!</h1>
+        <div>
+            <form action="" method="post">
+                Vendor Id:
+                <input type="text" id="POvendorId" name="vendorId" />
+                <br/>
+                Amount: 
+                <input type="number" id="issueAmount" name="amount" />
+                <br />
+                <input type="submit"  name="addPO" />
+            </form>
+        </div>
+        <br/><br/><br/>
     </body>
-    <%@include file="base/footer.jsp" %>
+    <div class="footer" >
+        <%@include file="base/footer.jsp" %>
+    </div>
 </html>

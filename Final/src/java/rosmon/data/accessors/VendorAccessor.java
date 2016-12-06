@@ -84,7 +84,7 @@ public class VendorAccessor {
             return ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(VendorAccessor.class.getName()).log(Level.SEVERE, null, ex);
-            return 0;
+            return -1;
         } finally {
             if(ps != null){
                 DBUtil.closePreparedStatement(ps);

@@ -12,15 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import rosmon.purchaseOrder.business.PurchaseOrder;
 import rosmon.purchaseOrder.business.AddPurchaseOrderBean;
+import rosmon.purchaseOrder.business.PurchaseOrderBean;
 import rosmon.purchaseOrder.business.PurchaseOrderUpdateBean;
 
 import rosmon.utilities.SessionConstants;
 import rosmon.utilities.ValidatedReturn;
+import rosmon.vendors.business.VendorBean;
 
 /**
  * Servlet implementation class AddPOServlet
  */
-@WebServlet("/PO")
+@WebServlet("/POs")
 public class POServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -30,13 +32,30 @@ public class POServlet extends HttpServlet {
      * response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String POID = request.getParameter("id");
-        
-        //look up purchase order in database
-        PurchaseOrder purchaseOrder = new PurchaseOrder();
-        request.setAttribute("purchase_order", purchaseOrder);
-        getServletContext().getRequestDispatcher("viewPurchaseOrder.jsp").forward(request, response);
+        String id = request.getParameter("id");
+        String action = request.getParameter("action");
 
+        if (action.equalsIgnoreCase("getByVendor")) {
+            PurchaseOrderBean poBean = new PurchaseOrderBean();
+            try {
+                int intId = Integer.parseInt(id);
+                List<PurchaseOrder> poList = poBean.findByVendor(intId);
+                request.setAttribute("poList", poList);
+                getServletContext().getRequestDispatcher("/purchaseOrders.jsp").forward(request, response);
+            } catch (NumberFormatException e) {
+                System.out.println("ID Not entered as a number");
+            }
+        } else if (id.equalsIgnoreCase("all")) {
+            PurchaseOrderBean poBean = new PurchaseOrderBean();
+            List<PurchaseOrder> poList = poBean.selectAll();
+            request.setAttribute("poList", poList);
+            getServletContext().getRequestDispatcher("/purchaseOrders.jsp").forward(request, response);
+        } else {
+            //look up purchase order in database
+            PurchaseOrder purchaseOrder = new PurchaseOrder();
+            request.setAttribute("purchase_order", purchaseOrder);
+            getServletContext().getRequestDispatcher("/viewPurchaseOrder.jsp").forward(request, response);
+        }
     }
 
     /**
@@ -52,25 +71,25 @@ public class POServlet extends HttpServlet {
             purchaseOrder.setUserId(userId);
             purchaseOrder.setAmount(amount);
             purchaseOrder.setAmountRemaining(amount);
-            purchaseOrder.setVendorId(request.getParameter("vendor_id"));
+            purchaseOrder.setVendorId(request.getParameter("vendorId"));
 
             AddPurchaseOrderBean poBean = new AddPurchaseOrderBean();
             List<ValidatedReturn> errorList = poBean.addPurchaseOrder(purchaseOrder);
 
             if (errorList.isEmpty()) {
-                getServletContext().getRequestDispatcher("/listPOs").forward(request, response);
+                getServletContext().getRequestDispatcher("/purchaseOrders").forward(request, response);
             } else {
                 request.setAttribute("failure", errorList);
                 request.setAttribute("purchase_order", purchaseOrder);
                 PrintWriter out = response.getWriter();
                 out.println("Error adding PurchaseOrder");
-                getServletContext().getRequestDispatcher("/addPo").forward(request, response);
+                getServletContext().getRequestDispatcher("/purchaseOrders.jsp").forward(request, response);
             }
         } catch (NumberFormatException e) {
             amount = 0;
             PrintWriter out = response.getWriter();
             out.println("Amount was not a valid number");
-            getServletContext().getRequestDispatcher("/addPo").forward(request, response);
+            getServletContext().getRequestDispatcher("/purchaseOrders.jsp").forward(request, response);
         }
     }
 

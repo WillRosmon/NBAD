@@ -34,7 +34,7 @@
                 <c:forEach items="${requestScope.vendorList}" var="v">
                     <tr>
                         <td>
-                            <a href="<c:url value="vendors?id=${v.getVendorId()}" />">
+                            <a href="<c:url value="vendors?action=getByVendor&id=${v.getVendorId()}" />">
                             ${v.getVendorId()}
                             </a>
                         </td>

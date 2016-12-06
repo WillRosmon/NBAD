@@ -33,7 +33,7 @@ public class VendorBean {
         if (vendor.getVendorId() != null) {
             vendor.setVendorId(null);
         }
-        return VendorAccessor.addVendor(vendor) != 0;
+        return VendorAccessor.addVendor(vendor) != -1;
     }
     
     public List<Vendor> selectAllVendors() {

@@ -17,6 +17,18 @@
         <div class="navigation">
             <%@include file="base/navigation.jsp" %>
         </div>
+        
+        <div id="login">
+            <form action="login" method="post">
+                Username: 
+                <input type="text" name="username" id="loginUsername" />
+                <br />
+                Password: 
+                <input type="password" name="password" id="loginPassword" />
+                <br />
+                <input type="submit" value="login" />
+            </form>
+        </div>
     </body>
     <%@include file="base/footer.jsp" %>
 </html>

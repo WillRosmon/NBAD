@@ -51,3 +51,8 @@ body {
     float: left;
     padding-right: 100px;
 }
+
+.vendorName {
+    align-content: center;
+    font-weight: bold;
+}

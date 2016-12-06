@@ -19,9 +19,9 @@
         </div>
         
         <div id="vendorInfo">
-            <span class="vendorName">${requestScope.vendor.getVendorName()}</span>
+            <span class="vendorName"><c:out value="${requestScope.vendor.getVendorName()}" /></span>
             <br/>
-            <a href="<c:url value="/purchaseOrders?vendorId=${requestScope.vendor.getVendorId()}" />">
+            <a href="<c:url value="/purchaseOrders?action=getByVendor&id=${requestScope.vendor.getVendorId()}" />">
                 Vendor Purchase Orders
             </a>
             <br />
